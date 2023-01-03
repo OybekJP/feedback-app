@@ -1,22 +1,27 @@
 <?php include 'inc/header.php'; ?>          
 
 <?php 
-$feedback = [
-  [
-    'id'=> '1',
-    'name'=>'Karim Benzema',
-    'email'=>'karim@b.b',
-    'body'=>'Hala Madrid'
-  ],
-  [
-    'id'=> '2',
-    'name'=>'Ronaldo',
-    'email'=>'cr@cr.7',
-    'body'=>'Feedbakc app, Siiii!'
-  ],
-];
+// $feedback = [
+//   [
+//     'id'=> '1',
+//     'name'=>'Karim Benzema',
+//     'email'=>'karim@b.b',
+//     'body'=>'Hala Madrid'
+//   ],
+//   [
+//     'id'=> '2',
+//     'name'=>'Ronaldo',
+//     'email'=>'cr@cr.7',
+//     'body'=>'Feedbakc app, Siiii!'
+//   ],
+// ];
 
-
+  //calling actual data from databse instead of displaying harcoded data
+  $sql = 'SELECT * FROM feedback';
+  //Performs a query on the database
+  //we have access to $conn, because we included header which includes database where $conn is at
+  $result = mysqli_query($conn, $sql);
+  $feedback = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
    
