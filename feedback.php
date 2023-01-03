@@ -22,7 +22,7 @@
   //we have access to $conn, because we included header which includes database where $conn is at
   $result = mysqli_query($conn, $sql);
   $feedback = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
+  // var_dump($feedback);
 ?>
    
     <h2>Past Feedback</h2>
@@ -37,7 +37,7 @@
      <div class="card-body text-center">
       <?php echo $item['body']; ?>
        <div class="text-secondary mt-2">
-        By <?php echo $item['name']; ?> on <?php echo $item['date']; ?>
+        By <?php echo $item['name']; ?> on <?php echo date('d/M/Y ', strtotime($item['date'])); ?>
        </div>
      </div>
    </div>
