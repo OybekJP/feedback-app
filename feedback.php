@@ -37,7 +37,7 @@
      <div class="card-body text-center">
       <?php echo $item['body']; ?>
        <div class="text-secondary mt-2">
-        By <?php echo $item['name']; ?> 
+        By <?php echo $item['name']; ?> on <?php echo $item['date']; ?>
        </div>
      </div>
    </div>
