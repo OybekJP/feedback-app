@@ -36,7 +36,19 @@ if(isset($_POST['submit'])){
   }
 }
 
+//check if no error ocurred and insert input to a database in such case
+if(empty($nameErr)&& empty($emailErr) && empty($bodyErr)){
+  //Add to database
+  $sql = "INSERT INTO feedback (name, email, body) VALUES ('$name', '$email', '$body')";
 
+  //Performs a query on the database
+  if(mysqli_query($conn, $sql)){
+    //if connection ok and query is correct, redirect to feedback.php page using header with a path to desired page or URL  
+    header('Location: feedback.php');
+  }else{
+    echo 'Error: ' . mysqli_error($conn);
+  }
+}
 ?>
     <img src="img/logo.png" class="w-25 mb-3" alt="">
     <h2>Feedback</h2>
