@@ -42,7 +42,7 @@ if(empty($nameErr)&& empty($emailErr) && empty($bodyErr)){
   $sql = "INSERT INTO feedback (name, email, body) VALUES ('$name', '$email', '$body')";
 
   //Performs a query on the database
-  if(mysqli_query($conn, $sql)){
+  if(mysqli_query($conn, $sql) && isset($_POST['submit'])){
     //if connection ok and query is correct, redirect to feedback.php page using header with a path to desired page or URL  
     header('Location: feedback.php');
   }else{
