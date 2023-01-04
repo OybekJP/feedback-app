@@ -34,14 +34,14 @@ if(isset($_POST['submit'])){
   else{
     $body = filter_input(INPUT_POST,'body', FILTER_SANITIZE_SPECIAL_CHARS);
   }
-  
+
   //check if no error ocurred and insert input to a database in such case
   if(empty($nameErr)&& empty($emailErr) && empty($bodyErr)){
     //Add to database
     $sql = "INSERT INTO feedback (name, email, body) VALUES ('$name', '$email', '$body')";
   
     //Performs a query on the database
-    if(mysqli_query($conn, $sql) && isset($_POST['submit'])){
+    if(mysqli_query($conn, $sql)){
       //if connection ok and query is correct, redirect to feedback.php page using header with a path to desired page or URL  
       header('Location: feedback.php');
     }else{

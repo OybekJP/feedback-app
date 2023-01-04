@@ -37,8 +37,9 @@
      <div class="card-body text-center">
       <?php echo $item['body']; ?>
        <div class="text-secondary mt-2">
-        <!-- date formatting guide https://www.geeksforgeeks.org/php-converting-string-to-date-and-datetime/-->
-        By <?php echo $item['name']; ?> on <?php echo date('M j, y. h:s', strtotime($item['date'])); ?>
+        <!-- date formatting guide https://www.geeksforgeeks.org/php-converting-string-to-date-and-datetime -->
+          <!--print date as follows: By NAME on Jan 4 of 23. 15:47   -->
+        By <?php echo $item['name']; ?> on <?php echo date('M j \of y. H:i', strtotime($item['date'])); ?>
        </div>
      </div>
    </div>
